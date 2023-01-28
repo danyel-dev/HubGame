@@ -111,7 +111,8 @@ namespace Hub
             else
                 Console.WriteLine("\nPLAYER 2 GANHOU!!\n");
 
-            Console.WriteLine();
+            Console.Write("Aperte qualquer tecla para sair... ");
+            Console.ReadKey();
         }
         
         public void FillMatriz()
