@@ -1,0 +1,15 @@
+C:\Users\Danye\OneDrive\Documentos\Hub\Hub\bin\Debug\net6.0\Hub.exe
+C:\Users\Danye\OneDrive\Documentos\Hub\Hub\bin\Debug\net6.0\Hub.deps.json
+C:\Users\Danye\OneDrive\Documentos\Hub\Hub\bin\Debug\net6.0\Hub.runtimeconfig.json
+C:\Users\Danye\OneDrive\Documentos\Hub\Hub\bin\Debug\net6.0\Hub.dll
+C:\Users\Danye\OneDrive\Documentos\Hub\Hub\bin\Debug\net6.0\Hub.pdb
+C:\Users\Danye\OneDrive\Documentos\Hub\Hub\obj\Debug\net6.0\Hub.csproj.AssemblyReference.cache
+C:\Users\Danye\OneDrive\Documentos\Hub\Hub\obj\Debug\net6.0\Hub.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Danye\OneDrive\Documentos\Hub\Hub\obj\Debug\net6.0\Hub.AssemblyInfoInputs.cache
+C:\Users\Danye\OneDrive\Documentos\Hub\Hub\obj\Debug\net6.0\Hub.AssemblyInfo.cs
+C:\Users\Danye\OneDrive\Documentos\Hub\Hub\obj\Debug\net6.0\Hub.csproj.CoreCompileInputs.cache
+C:\Users\Danye\OneDrive\Documentos\Hub\Hub\obj\Debug\net6.0\Hub.dll
+C:\Users\Danye\OneDrive\Documentos\Hub\Hub\obj\Debug\net6.0\refint\Hub.dll
+C:\Users\Danye\OneDrive\Documentos\Hub\Hub\obj\Debug\net6.0\Hub.pdb
+C:\Users\Danye\OneDrive\Documentos\Hub\Hub\obj\Debug\net6.0\Hub.genruntimeconfig.cache
+C:\Users\Danye\OneDrive\Documentos\Hub\Hub\obj\Debug\net6.0\ref\Hub.dll
