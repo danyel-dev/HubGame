@@ -1,4 +1,4 @@
-﻿using Hub;
+﻿using Hub.Model;
 
 class Program
 {

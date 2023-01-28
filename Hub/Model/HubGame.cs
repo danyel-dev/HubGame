@@ -1,5 +1,4 @@
-﻿
-namespace Hub
+﻿namespace Hub.Model
 {
     class HubGame
     {

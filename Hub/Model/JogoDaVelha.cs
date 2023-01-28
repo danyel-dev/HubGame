@@ -1,7 +1,7 @@
 ﻿
 using System;
 
-namespace Hub
+namespace Hub.Model
 {
     public class JogoDaVelha
     {
@@ -10,13 +10,13 @@ namespace Hub
 
         public JogoDaVelha(int matrixOrder)
         {
-            this.MatrixOrder = matrixOrder;
+            MatrixOrder = matrixOrder;
             MatrixGame = new string[matrixOrder, matrixOrder];
         }
 
         public void MainGame()
         {
-            this.FillMatriz();
+            FillMatriz();
             Console.WriteLine();
 
             Console.WriteLine("1 - Player 01 começa com 'X'");
@@ -33,7 +33,8 @@ namespace Hub
             {
                 player1 = "X";
                 player2 = "O";
-            } else
+            }
+            else
             {
                 player2 = "X";
                 player1 = "O";
@@ -43,7 +44,7 @@ namespace Hub
 
             int flag = 0;
 
-            for (int i = 0; i < this.MatrixOrder * this.MatrixOrder; i++)
+            for (int i = 0; i < MatrixOrder * MatrixOrder; i++)
             {
                 Console.WriteLine($"\nPlayer 1 - [{player1}]");
                 Console.WriteLine($"Player 2 - [{player2}]\n");
@@ -71,27 +72,33 @@ namespace Hub
                 int line = matrixCell[0];
                 int column = matrixCell[1];
 
-                this.MatrixGame[line, column] = charactere;
+                MatrixGame[line, column] = charactere;
 
-                if (CheckColumn(column, charactere)) {
+                if (CheckColumn(column, charactere))
+                {
                     flag = 1;
                     break;
                 }
 
-                if (CheckLine(line, charactere)) {
+                if (CheckLine(line, charactere))
+                {
                     flag = 1;
                     break;
                 }
 
-                else if (line == column) {
-                    if (CheckMainDiagonal(charactere)) {
+                else if (line == column)
+                {
+                    if (CheckMainDiagonal(charactere))
+                    {
                         flag = 1;
                         break;
                     }
                 }
 
-                else if (line + column == this.MatrixOrder - 1) { 
-                    if (CheckSecondaryDiagonal(charactere)) {
+                else if (line + column == MatrixOrder - 1)
+                {
+                    if (CheckSecondaryDiagonal(charactere))
+                    {
                         flag = 1;
                         break;
                     }
@@ -114,14 +121,14 @@ namespace Hub
             Console.Write("Aperte qualquer tecla para sair... ");
             Console.ReadKey();
         }
-        
+
         public void FillMatriz()
         {
             int count = 1;
 
-            for (int i = 0; i < this.MatrixOrder; i++)
+            for (int i = 0; i < MatrixOrder; i++)
             {
-                for (int j = 0; j < this.MatrixOrder; j++)
+                for (int j = 0; j < MatrixOrder; j++)
                 {
                     MatrixGame[i, j] = $"{count}";
                     count++;
@@ -131,7 +138,7 @@ namespace Hub
 
         public void PrintMatrix()
         {
-            int numberOfCharacters = this.MatrixOrder * 4;
+            int numberOfCharacters = MatrixOrder * 4;
             var charactere = "";
 
             for (int i = 1; i < numberOfCharacters; i++)
@@ -142,26 +149,26 @@ namespace Hub
                     charactere += "-";
             }
 
-            for (int i = 0; i < this.MatrixOrder; i++)
+            for (int i = 0; i < MatrixOrder; i++)
             {
-                for (int j = 0; j < this.MatrixOrder; j++)
+                for (int j = 0; j < MatrixOrder; j++)
                 {
                     if (MatrixGame[i, j] == "X")
                         Console.ForegroundColor = ConsoleColor.Blue;
-                    
+
                     if (MatrixGame[i, j] == "O")
                         Console.ForegroundColor = ConsoleColor.Red;
 
                     Console.Write($" {MatrixGame[i, j]} ");
                     Console.ResetColor();
 
-                    if (j != this.MatrixOrder - 1)
+                    if (j != MatrixOrder - 1)
                         Console.Write($"|");
                 }
 
                 Console.WriteLine();
 
-                if (i != this.MatrixOrder - 1)
+                if (i != MatrixOrder - 1)
                     Console.WriteLine(charactere);
             }
         }
@@ -173,24 +180,24 @@ namespace Hub
 
             int line, column;
 
-            if (pos <= this.MatrixOrder)
+            if (pos <= MatrixOrder)
             {
                 line = 0; column = pos - 1;
             }
-            else if (pos == this.MatrixOrder * this.MatrixOrder)
+            else if (pos == MatrixOrder * MatrixOrder)
             {
-                line = this.MatrixOrder - 1;
-                column = this.MatrixOrder - 1;
+                line = MatrixOrder - 1;
+                column = MatrixOrder - 1;
             }
-            else if (pos % this.MatrixOrder != 0)
+            else if (pos % MatrixOrder != 0)
             {
-                line = pos / this.MatrixOrder;
-                column = pos % this.MatrixOrder - 1;
+                line = pos / MatrixOrder;
+                column = pos % MatrixOrder - 1;
             }
             else
             {
-                line = pos / this.MatrixOrder - 1;
-                column = this.MatrixOrder - 1;
+                line = pos / MatrixOrder - 1;
+                column = MatrixOrder - 1;
             }
 
             matrixCell[0] = line;
@@ -201,12 +208,12 @@ namespace Hub
         {
             int count = 0;
 
-            for (int i = 0; i < this.MatrixOrder; i++)
+            for (int i = 0; i < MatrixOrder; i++)
             {
-                if (this.MatrixGame[i, column] == charactere)
+                if (MatrixGame[i, column] == charactere)
                     count++;
 
-                if (count == this.MatrixOrder)
+                if (count == MatrixOrder)
                     return true;
             }
 
@@ -217,12 +224,12 @@ namespace Hub
         {
             int count = 0;
 
-            for (int j = 0; j < this.MatrixOrder; j++)
+            for (int j = 0; j < MatrixOrder; j++)
             {
-                if (this.MatrixGame[line, j] == charactere)
+                if (MatrixGame[line, j] == charactere)
                     count++;
 
-                if (count == this.MatrixOrder)
+                if (count == MatrixOrder)
                     return true;
             }
 
@@ -233,12 +240,12 @@ namespace Hub
         {
             int count = 0;
 
-            for (int i = 0; i < this.MatrixOrder; i++)
+            for (int i = 0; i < MatrixOrder; i++)
             {
-                if (this.MatrixGame[i, i] == charactere)
+                if (MatrixGame[i, i] == charactere)
                     count++;
 
-                if (count == this.MatrixOrder)
+                if (count == MatrixOrder)
                     return true;
             }
 
@@ -248,14 +255,14 @@ namespace Hub
         public bool CheckSecondaryDiagonal(string charactere)
         {
             int count = 0;
-            int column = this.MatrixOrder - 1;
+            int column = MatrixOrder - 1;
 
-            for (int i = 0; i < this.MatrixOrder; i++)
+            for (int i = 0; i < MatrixOrder; i++)
             {
-                if (this.MatrixGame[i, column] == charactere)
+                if (MatrixGame[i, column] == charactere)
                     count++;
 
-                if (count == this.MatrixOrder)
+                if (count == MatrixOrder)
                     return true;
 
                 column--;

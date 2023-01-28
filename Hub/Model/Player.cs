@@ -1,5 +1,4 @@
-﻿
-namespace Hub
+﻿namespace Hub.Model
 {
     public class Player
     {
@@ -8,11 +7,12 @@ namespace Hub
         public string Password { get; private set; }
         public int Victories { get; set; }
 
-        public Player(string name, string username, string password) {
-            this.Name = name;
-            this.Username = username; 
-            this.Password = password;
-            this.Victories = 0;
+        public Player(string name, string username, string password)
+        {
+            Name = name;
+            Username = username;
+            Password = password;
+            Victories = 0;
         }
     }
 }
