@@ -5,14 +5,22 @@
         public string Name { get; set; }
         public string Username { get; set; }
         public string Password { get; private set; }
-        public int Victories { get; set; }
+        public Score ScoreJogoDaVelha { get; private set; } = new Score();
 
         public Player(string name, string username, string password)
         {
             Name = name;
             Username = username;
             Password = password;
-            Victories = 0;
+        }
+
+        public void ShowScoreJogoDaVelha()
+        {
+            Console.WriteLine($"<== Player: {Name} ==>\n");
+            Console.WriteLine($"| Número de vitórias: {ScoreJogoDaVelha.Wins}");
+            Console.WriteLine($"| Número de derrotas: {ScoreJogoDaVelha.Defeats}");
+            Console.WriteLine($"| Número de empates: {ScoreJogoDaVelha.Ties}");
+            Console.WriteLine($"| Pontuação: {ScoreJogoDaVelha.Punctuation}\n");
         }
     }
 }

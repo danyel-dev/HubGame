@@ -7,20 +7,24 @@ namespace Hub.Model
     {
         public int MatrixOrder { get; set; }
         public string[,] MatrixGame { get; set; }
+        public Player PlayerOne { get; set; }
+        public Player PlayerTwo { get; set; }
 
-        public JogoDaVelha(int matrixOrder)
+        public JogoDaVelha(int matrixOrder, Player playerOne, Player playerTwo)
         {
             MatrixOrder = matrixOrder;
             MatrixGame = new string[matrixOrder, matrixOrder];
+            PlayerOne = playerOne;
+            PlayerTwo = playerTwo;
         }
 
-        public void MainGame()
+        public int MainGame()
         {
             FillMatriz();
             Console.WriteLine();
 
-            Console.WriteLine("1 - Player 01 começa com 'X'");
-            Console.WriteLine("2 - Player 02 começa com 'X'");
+            Console.WriteLine($"1 - {PlayerOne.Name} começa com 'X'");
+            Console.WriteLine($"2 - {PlayerTwo.Name} começa com 'X'");
             Console.Write("\nInforme o número da opção: ");
 
             int option = int.Parse(Console.ReadLine());
@@ -46,20 +50,20 @@ namespace Hub.Model
 
             for (int i = 0; i < MatrixOrder * MatrixOrder; i++)
             {
-                Console.WriteLine($"\nPlayer 1 - [{player1}]");
-                Console.WriteLine($"Player 2 - [{player2}]\n");
+                Console.WriteLine($"\n{PlayerOne.Username} - [{player1}]");
+                Console.WriteLine($"{PlayerTwo.Username} - [{player2}]\n");
                 PrintMatrix();
 
                 Console.WriteLine();
 
                 if (i % 2 == 0)
                 {
-                    Console.WriteLine("- Vez do player 01");
+                    Console.WriteLine($"-> Vez do player 01 - {PlayerOne.Username}");
                     charactere = player1;
                 }
                 else
                 {
-                    Console.WriteLine("- Vez do player 02");
+                    Console.WriteLine($"-> Vez do player 02 - {PlayerTwo.Username}");
                     charactere = player2;
                 }
 
@@ -112,14 +116,20 @@ namespace Hub.Model
             PrintMatrix();
 
             if (flag == 0)
-                Console.WriteLine("\nEMPATE!!");
+            {
+                Console.WriteLine("\nEMPATE!!\n");
+                return 0;
+            }
             else if (player1 == charactere)
-                Console.WriteLine("\nPLAYER 1 GANHOU!!\n");
+            {
+                Console.WriteLine($"\n{PlayerOne.Username} GANHOU!!\n");
+                return 1;
+            }
             else
-                Console.WriteLine("\nPLAYER 2 GANHOU!!\n");
-
-            Console.Write("Aperte qualquer tecla para sair... ");
-            Console.ReadKey();
+            {
+                Console.WriteLine($"\n{PlayerTwo.Username} GANHOU!!\n");
+                return 2;
+            }
         }
 
         public void FillMatriz()
